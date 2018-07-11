@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/Onspota/OnSpotIosSdk"
   s.license          = { :type => 'Custom', :file => 'LICENSE' }
   s.author           = { "Tomer Lavi" => "tomer@assist.co.il" }
-#  s.source           = { :git => "https://github.com/Onspota/OnSpotIosSdk.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/Onspota/OnSpotIosSdk.git", :tag => s.version.to_s }
   s.source           = { :path => '.' }
 
   s.ios.deployment_target = '10.0'
