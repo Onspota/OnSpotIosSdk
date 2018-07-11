@@ -21,5 +21,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
 
   s.vendored_frameworks = 'Framework/*'
-  s.dependency 'AFNetworking'
+    s.dependency 'AFNetworking', '~> 3'
+    s.dependency 'JSONModel', '~> 1.2'
+    s.dependency 'ISO8601', '~> 0.6'
 end
