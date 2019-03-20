@@ -41,4 +41,8 @@
 
 @property(nonatomic) NSNumber* sensorUpTime;
 
+@property(nonatomic) NSNumber* timeJava;
+
+@property(nonatomic) NSString* timeStr;
+
 @end

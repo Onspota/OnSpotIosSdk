@@ -14,23 +14,27 @@
 */
 
 
-#import "SWGLocation.h"
-#import "SWGRadio.h"
-@protocol SWGLocation;
-@class SWGLocation;
-@protocol SWGRadio;
-@class SWGRadio;
 
 
 
-@protocol SWGPlacesSearchRequest
+@protocol SWGGeofenceTrigger
 @end
 
-@interface SWGPlacesSearchRequest : SWGObject
+@interface SWGGeofenceTrigger : SWGObject
 
+/* Trigger type 
+ */
+@property(nonatomic) NSString* type;
 
-@property(nonatomic) SWGLocation* location;
+@property(nonatomic) NSNumber* longitude;
 
-@property(nonatomic) NSArray<SWGRadio>* radioArray;
+@property(nonatomic) NSNumber* latitude;
+
+@property(nonatomic) NSNumber* radius;
+
+@property(nonatomic) NSArray<NSString*>* notifyOn;
+/* Used to identify fiered trigger [optional]
+ */
+@property(nonatomic) NSString* geofenceId;
 
 @end

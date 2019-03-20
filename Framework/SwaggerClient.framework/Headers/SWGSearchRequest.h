@@ -20,6 +20,7 @@
 #import "SWGMobility.h"
 #import "SWGRadio.h"
 #import "SWGServerLastResponse.h"
+#import "SWGStatistics.h"
 @protocol SWGBattery;
 @class SWGBattery;
 @protocol SWGLocation;
@@ -32,6 +33,8 @@
 @class SWGRadio;
 @protocol SWGServerLastResponse;
 @class SWGServerLastResponse;
+@protocol SWGStatistics;
+@class SWGStatistics;
 
 
 
@@ -44,6 +47,14 @@
 @property(nonatomic) SWGMarker* marker;
 
 @property(nonatomic) SWGLocation* location;
+
+@property(nonatomic) SWGLocation* lastLocation;
+
+@property(nonatomic) NSArray<SWGLocation>* locationsArray;
+
+@property(nonatomic) NSString* currentNetwork;
+
+@property(nonatomic) NSNumber* messageSn;
 
 @property(nonatomic) NSArray<SWGRadio>* radioArray;
 
@@ -60,5 +71,7 @@
 @property(nonatomic) NSString* floor;
 
 @property(nonatomic) NSString* trigger;
+
+@property(nonatomic) SWGStatistics* statistics;
 
 @end

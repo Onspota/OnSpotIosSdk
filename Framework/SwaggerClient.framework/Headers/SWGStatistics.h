@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import <JSONModel/JSONModel.h>
+#import "SWGObject.h"
 
 /**
 * OnSpota API
@@ -14,6 +14,23 @@
 */
 
 
-@interface SWGObject : JSONModel
+
+
+
+@protocol SWGStatistics
+@end
+
+@interface SWGStatistics : SWGObject
+
+
+@property(nonatomic) NSNumber* hbAvgDt;
+
+@property(nonatomic) NSNumber* hbStdDt;
+
+@property(nonatomic) NSNumber* hbDataCount;
+
+@property(nonatomic) NSNumber* hbMaxOffset;
+
+@property(nonatomic) NSNumber* hbMinOffset;
 
 @end

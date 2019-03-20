@@ -40,5 +40,8 @@
 @property(nonatomic) SWGActionType* actionType;
 
 @property(nonatomic) SWGNotification* notification;
+/* Event's title. [optional]
+ */
+@property(nonatomic) NSString* title;
 
 @end

@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import <JSONModel/JSONModel.h>
+#import "SWGObject.h"
 
 /**
 * OnSpota API
@@ -14,6 +14,26 @@
 */
 
 
-@interface SWGObject : JSONModel
+
+
+
+@protocol SWGBeaconTrigger
+@end
+
+@interface SWGBeaconTrigger : SWGObject
+
+/* Beacon type 
+ */
+@property(nonatomic) NSString* type;
+
+@property(nonatomic) NSString* _id;
+
+@property(nonatomic) NSNumber* major;
+
+@property(nonatomic) NSNumber* minor;
+
+@property(nonatomic) NSNumber* txPower;
+
+@property(nonatomic) NSNumber* distance;
 
 @end

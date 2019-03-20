@@ -11,6 +11,8 @@
 @interface OnSpotaApi : NSObject
 
 @property NSString* apiKey;
+@property NSString* userId;
+@property (nonatomic) NSString* host;
 
 - (void) callSearchApi:(NSDictionary *)params completionHandler:(void (^)(NSDictionary* result))completionHandler;
 

@@ -22,6 +22,9 @@
 
 @interface SWGMobility : SWGObject
 
+/* Is motion sensor enabled. [optional]
+ */
+@property(nonatomic) NSNumber* isEnabled;
 /* Accelerometer based estimation if the device is moving or stationary [optional]
  */
 @property(nonatomic) NSNumber* isMoving;

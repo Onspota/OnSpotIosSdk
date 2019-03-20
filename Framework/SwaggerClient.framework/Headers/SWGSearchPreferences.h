@@ -14,6 +14,12 @@
 */
 
 
+#import "SWGBeaconTrigger.h"
+#import "SWGGeofenceTrigger.h"
+@protocol SWGBeaconTrigger;
+@class SWGBeaconTrigger;
+@protocol SWGGeofenceTrigger;
+@class SWGGeofenceTrigger;
 
 
 
@@ -28,9 +34,15 @@
 /* Response from search which sets up the location updates interval [optional]
  */
 @property(nonatomic) NSString* lOCATIONINTERVAL;
-/* Response from search which sets up the radio updates interval [optional]
+/* Response from search which sets up the radio updates interval. [optional]
  */
 @property(nonatomic) NSString* rADIOINTERVAL;
+/* Response from search which sets up the beacon updates interval. if this value is missing then 'RADIO_INTERVAL' is used. [optional]
+ */
+@property(nonatomic) NSNumber* bEACONINTERVAL;
+/* Response from search which sets up the wifi updates interval. if this value is missing then 'RADIO_INTERVAL' is used. [optional]
+ */
+@property(nonatomic) NSNumber* wIFIINTERVAL;
 /* Response from search which sets up a geofence radius [optional]
  */
 @property(nonatomic) NSString* eMPTYGEOFENCERADIUS;
@@ -40,5 +52,14 @@
 /* iOS HB mapping [optional]
  */
 @property(nonatomic) NSString* iOSTIMERMETHOD;
+/* Determine if the app should activate the motion sensor. [optional]
+ */
+@property(nonatomic) NSNumber* mOTIONENABLE;
+/* Geo regions the app should monitor for. [optional]
+ */
+@property(nonatomic) NSArray<SWGGeofenceTrigger>* geofenceTriggers;
+/* Beacons the app should monitor for. [optional]
+ */
+@property(nonatomic) NSArray<SWGBeaconTrigger>* beaconTriggers;
 
 @end

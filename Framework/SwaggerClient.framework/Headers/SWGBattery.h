@@ -23,6 +23,8 @@
 @interface SWGBattery : SWGObject
 
 
+@property(nonatomic) NSNumber* powerPrecent;
+
 @property(nonatomic) NSNumber* isCharging;
 
 @property(nonatomic) NSNumber* isLow;
