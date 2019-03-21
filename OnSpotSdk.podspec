@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "OnSpotSdk"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary          = "OnSpot SDK"
 
   s.description      = "OnSpot services framework"
