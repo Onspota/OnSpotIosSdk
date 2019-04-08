@@ -181,7 +181,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_attribute(external_source_symbol)
 # pragma push_macro("any")
 # undef any
-# pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="OnSpotTrackerSdk",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
+# pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="OnSpotSdk",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
 # pragma pop_macro("any")
 #endif
 
@@ -191,7 +191,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class CLBeaconRegion;
 @class CLRegion;
 
-SWIFT_CLASS("_TtC16OnSpotTrackerSdk11OnSpotaCore")
+SWIFT_CLASS("_TtC9OnSpotSdk11OnSpotaCore")
 @interface OnSpotaCore : NSObject <CLLocationManagerDelegate>
 - (void)initTracker:(NSString * _Nonnull)apiKey SWIFT_METHOD_FAMILY(none);
 - (void)suspendTracker;
