@@ -1,11 +1,11 @@
-framework module OnSpotSdk {
-  umbrella header "OnSpotSdk.h"
+framework module OnSpotTrackerSdk {
+  umbrella header "OnSpotTrackerSdk.h"
 
   export *
   module * { export * }
 }
 
-module OnSpotSdk.Swift {
-    header "OnSpotSdk-Swift.h"
+module OnSpotTrackerSdk.Swift {
+    header "OnSpotTrackerSdk-Swift.h"
     requires objc
 }
