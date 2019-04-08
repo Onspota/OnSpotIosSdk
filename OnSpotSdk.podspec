@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.author           = { "Tomer Lavi" => "tomer@assist.co.il" }
   s.source           = { :git => "https://github.com/Onspota/OnSpotIosSdk.git", :tag => s.version.to_s }
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '10.0'
 
   s.vendored_frameworks = 'Framework/*'
     s.dependency 'AFNetworking', '~> 3'
