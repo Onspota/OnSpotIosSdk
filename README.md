@@ -34,7 +34,7 @@ Add the following line to your podfile:
 pod 'OnSpotSdk'
 
 
-# Using
+# Usage Instructions
 
 1. Request your AppID by support@onspota.com
 
