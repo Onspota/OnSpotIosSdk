@@ -15,14 +15,14 @@ Background modes - Location updates, Background fetch.
 
 ## Application Setup
 
-For geo-location and beacon scanning you need to add the location description tags to the info.plist file:
-Privacy - Location Always Usage Description
-Privacy - Motion Usage Description
-Privacy - Location Always and When In Use Usage Description
-
-Add the following Required background modes:
-App downloads content from the network
-App registers for location updates
+For geo-location and beacon scanning you need to add the location description tags to the info.plist file:  
+Privacy - Location Always Usage Description  
+Privacy - Motion Usage Description  
+Privacy - Location Always and When In Use Usage Description  
+  
+Add the following Required background modes:  
+App downloads content from the network  
+App registers for location updates  
 
 
 # Installation
