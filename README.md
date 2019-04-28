@@ -40,109 +40,23 @@ pod 'OnSpotSdk'
 
 2. Initialize the tracker on your application delegate :
 
-		onSpotTracker.initTracker("474a93a9-d543-4d52-9ca5-4b431905dcd1")
+		OnSpotaCore.sharedInstance.initTracker("474a93a9-d543-4d52-9ca5-4b431905dcd1")
 
 3. Add background fetch support:
 
-	func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-		onSpotTracker.resumeTracker();
+		func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+		OnSpotaCore.sharedInstance.resumeTracker();
 		completionHandler(UIBackgroundFetchResult.newData);
-	}
-
-4. Start the SDK by simply creating a SDK object and calling one of its 'start' methods:
-
-public SdkResult start(String userId); // Uses the application id from the app's manifest.
-public SdkResult start(String userId, String appId); // Uses the provided application-id.
-
-Application can always stop the SDK by invoking the 'stop' method from any incatce of the OnspotaApi class.
-
-
-        // Replace 'MyUserId' with the user's user-id allocated by YOUR service.
-	// Replace "MyAppId" with the App ID provided to you by onspota (this is an optional parameter)
-        // Replace myContext with the current context (use 'this' when starting the sdk from Activity, Service, etc.)
-         // See our demo app for more details.
-         OnspotaApi.SdkResult sdkResult = new OnspotaApi(myContext).start("MyUserId", "MyAppId");
-
-                    if (sdkResult == OnspotaApi.SdkResult.Ok) {
-                        // SDK was started.
-                    }
-                    else if (sdkResult == OnspotaApi.SdkResult.AndroidVersionNotSupported) {
-                        Log.w(TAG,"OnSpota SDK doesn't support current android os");
-                    }
-                    else if (sdkResult == OnspotaApi.SdkResult.FailedToFind3rdPartyLib) {
-                        Log.e(TAG,"Critical error: OnSpota SDK Failed to find at least one of its required dependencies.");
-                    }
-                    else if (sdkResult == OnspotaApi.SdkResult.Failed) {
-                        Log.e(TAG,"OnSpota SDK Failed to start.");
-                    }
-		
-
-5. Register listener for search responses by onspotasdk
-
-		@Override
-		public void onResume() {
-		    super.onResume();
-		    registerReceiver(mEventReceiver, new IntentFilter(getString(com.onspota.sdk.R.string.intent_search)));
 		}
-		
-		@Override
-		public void onPause() {
-		    super.onPause();
-		    unregisterReceiver(mEventReceiver);
-		}
-
-6. Obtain a SearchResponse object by the received Intent
-            
-		public void onReceive(Context context, Intent intent) {
-				SearchResponse searchResponse = (SearchResponse) intent.getSerializableExtra(getString(com.onspota.sdk.R.string.intent_search_response));
-
-7. Retrieve surrounding spots, places and incoming events by the SearchResponse object
-
-		List<PlacesListItem> places = searchResponse.getPlaces();
-		List<SpotSearchResponse> spots = searchResponse.getSpots();
-		List<Event> events = searchResponse.getEvents();
-		
-		
-8. Add location context to custom events:
-
-OnSpota SDK supports geo-analytic feature that adds location context to app custom events such as button click, screen view, etc. This features enables app owners to understand location asspects of their users interations (e.g app usage inside and near stores and user home). Using this feature is done by invoking the '#sendEvent' method of OnspotaApi object:
-	
-	mOnspotaSdk = new OnspotaApi(myContext);
-	.
-	. do something
-	.
-	mOnspotaSdk.sendEvent(new OnspotaSdk.appEvent(ID, category, label));
-		
-ID is the only mandatory value.
-*this function is still not released
 
 
 # Behaviour
 
-The service for objects scanning starts when you call the 'start' method of the SDK.
-The service will be automatically restarted when device is rebooted in response of BOOT_COMPLETED intent.
-The periods the service performs scans and execute requests to OnSpot server are smartly controlled by server based on multiple parameters including proximity to the surrounding objects, device movement, power status, user behavior and others. 
+The service for objects scanning starts when you call the 'initTracker' method of the SDK.
+The service will be automatically restarted when device is rebooted.
+The periods the service performs scans and execute requests to OnSpot server are smartly controlled by server based on multiple parameters including proximity to the surrounding objects, device movement, user behavior and others. 
 
-Application can always stop the SDK by invoking the 'stop' method from any incatnce of the OnspotaApi class.
+Application can always stop the SDK by invoking the 'suspendTracker' method of the OnSpotaCore class.
 
-# REST Responce
-
-OnSpot@ offers the option to send data on REST to a designated server. The server should be identified and confirmed during your account creation process. 
-
-1. Pass/On/Off events
-
-[POST] https://SERVER_URL
-```python
-{
-    "timestamp": "",    # UTC time, ISO 8601 (event detection time)
-    "app_id": "",       # string  (your app id with onspot, you may run more then one app with the same REST service)
-    "object_type": "",  # string (S - Spot, G - Geofence, P - Place)
-    "object_uuid": "",  # string (Onspot object id)
-    "object_name": "",  # string (Human Readable object name)
-    "user_id": "",      # string  (Your internal user id, in case provided by the app to Onspot@ SDK)
-    "event_type": "",   # string, (PASS, ON, OFF)
-    "elapsed_time": 0,  # in seconds
-}
-```
 
 Copyright (c) 2018 OnSpot@ AG. All rights reserved.
